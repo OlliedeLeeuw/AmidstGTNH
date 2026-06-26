@@ -1,0 +1,8 @@
+package sedridor.amidst.map;
+
+public class MapObjectJungleTemple extends MapObject {
+
+    public MapObjectJungleTemple(int eX, int eY) {
+        super(MapMarkers.JUNGLE_TEMPLE, eX, eY);
+    }
+}

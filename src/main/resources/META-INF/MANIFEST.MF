@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+FMLCorePlugin: sedridor.forgeamidst.CorePlugin
+FMLCorePluginContainsFMLMod: true
+
