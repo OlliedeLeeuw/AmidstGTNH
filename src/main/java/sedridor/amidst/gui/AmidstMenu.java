@@ -39,7 +39,6 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import sedridor.amidst.Amidst;
 import sedridor.amidst.Options;
 import sedridor.amidst.Util;
 import sedridor.amidst.logging.Log;
@@ -148,7 +147,7 @@ public class AmidstMenu extends JMenuBar {
 
                 {
                     setEnabled((ForgeAmidst.getWorld() != null));
-                    setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, InputEvent.CTRL_DOWN_MASK));
+                    setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, InputEvent.CTRL_DOWN_MASK));
                     addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent e) {
@@ -496,63 +495,63 @@ public class AmidstMenu extends JMenuBar {
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Grid",
                         ResourceLoader.getImage("grid.png"),
-                        49,
+                        KeyEvent.VK_1,
                         Options.instance.showGrid));
                 addSeparator();
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Player Icons",
                         ResourceLoader.getImage("player.png"),
-                        50,
+                        KeyEvent.VK_2,
                         Options.instance.showPlayers));
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Slime chunks",
                         ResourceLoader.getImage("slime.png"),
-                        51,
+                        KeyEvent.VK_3,
                         Options.instance.showSlimeChunks));
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Village Icons",
                         ResourceLoader.getImage("village.png"),
-                        52,
+                        KeyEvent.VK_4,
                         Options.instance.showVillages));
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Temple/Igloo/Witch Hut Icons",
                         ResourceLoader.getImage("desert_temple.png"),
-                        53,
+                        KeyEvent.VK_5,
                         Options.instance.showTemples));
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Ocean Monument Icons",
                         ResourceLoader.getImage("ocean_monument.png"),
-                        54,
+                        KeyEvent.VK_6,
                         Options.instance.showOceanMonuments));
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Stronghold Icons",
                         ResourceLoader.getImage("stronghold.png"),
-                        55,
+                        KeyEvent.VK_7,
                         Options.instance.showStrongholds));
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Nether Fortress Icons",
                         ResourceLoader.getImage("nether_fortress.png"),
-                        56,
+                        KeyEvent.VK_8,
                         Options.instance.showNetherFortresses));
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Spawn Location Icon",
                         ResourceLoader.getImage("spawn.png"),
-                        57,
+                        KeyEvent.VK_9,
                         Options.instance.showSpawn));
                 addSeparator();
                 add(
                     (JMenuItem) new AmidstMenu.DisplayingCheckbox(
                         "Hide icons",
                         null,
-                        48,
+                        KeyEvent.VK_0,
                         Options.instance.hideObjects));
             }
         }
@@ -965,12 +964,13 @@ public class AmidstMenu extends JMenuBar {
                     addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(
-                                AmidstMenu.this.window,
-                                "ForgeAMIDST Version " + Amidst.getVersion()
-                                    + " by Sedridor\nThis is a version of AMIDST modified to integrate into Minecraft as a Forge Mod\nIt has been developed for Climate Control by Zeno410\n\nAdvanced Minecraft Interfacing and Data/Structure Tracking (AMIDST)\nBy Skidoodle",
-                                "About",
-                                -1);
+                            JOptionPane.showMessageDialog(AmidstMenu.this.window, """
+                                Advanced Minecraft Interfacing and Data/Structure Tracking (AMIDST)\n
+                                Amidst-GTNH Version x.x by Ollie_de_Leeuw
+                                Recompiled and forked from ForgeAMIDST Version 1.4 by Sedridor.
+                                The original Amidst was first developed by Skidoodle
+                                Then modified to work with Climate Control by Zeno410
+                                """, "About", -1);
                         }
                     });
                 }
