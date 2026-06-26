@@ -10,6 +10,8 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -104,7 +106,7 @@ public class AmidstMenu extends JMenuBar {
 
                 {
                     setEnabled(false);
-                    setAccelerator(KeyStroke.getKeyStroke(85, 128));
+                    setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_DOWN_MASK));
                     addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent e) {
@@ -146,7 +148,7 @@ public class AmidstMenu extends JMenuBar {
 
                 {
                     setEnabled((ForgeAmidst.getWorld() != null));
-                    setAccelerator(KeyStroke.getKeyStroke(87, 128));
+                    setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, InputEvent.CTRL_DOWN_MASK));
                     addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent e) {
@@ -166,7 +168,7 @@ public class AmidstMenu extends JMenuBar {
 
                 {
                     setEnabled(false);
-                    setAccelerator(KeyStroke.getKeyStroke(83, 128));
+                    setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
                     addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent e) {
@@ -267,7 +269,7 @@ public class AmidstMenu extends JMenuBar {
 
             private SeedMenuItem() {
                 super("From seed");
-                setAccelerator(KeyStroke.getKeyStroke(78, 128));
+                setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
                 addActionListener(new ActionListener() {
 
                     public void actionPerformed(ActionEvent e) {
@@ -308,7 +310,7 @@ public class AmidstMenu extends JMenuBar {
 
             private RandomSeedMenuItem() {
                 super("From random seed");
-                setAccelerator(KeyStroke.getKeyStroke(82, 128));
+                setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_DOWN_MASK));
                 addActionListener(new ActionListener() {
 
                     public void actionPerformed(ActionEvent e) {
@@ -346,7 +348,7 @@ public class AmidstMenu extends JMenuBar {
 
             private FileMenuItem() {
                 super("From saved game...");
-                setAccelerator(KeyStroke.getKeyStroke(79, 128));
+                setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
                 addActionListener(new ActionListener() {
 
                     public void actionPerformed(ActionEvent e) {
@@ -383,14 +385,14 @@ public class AmidstMenu extends JMenuBar {
 
         private DisplayingCheckbox(String text, BufferedImage icon, int key, JToggleButton.ToggleButtonModel model) {
             super(text, (icon != null) ? new ImageIcon(icon) : null);
-            if (key != -1) setAccelerator(KeyStroke.getKeyStroke(key, 128));
+            if (key != -1) setAccelerator(KeyStroke.getKeyStroke(key, InputEvent.CTRL_DOWN_MASK));
             setModel(model);
         }
 
         private DisplayingCheckbox(String text, BufferedImage icon, int key, JToggleButton.ToggleButtonModel model,
             ActionListener actionListener) {
             super(text, (icon != null) ? new ImageIcon(icon) : null);
-            if (key != -1) setAccelerator(KeyStroke.getKeyStroke(key, 128));
+            if (key != -1) setAccelerator(KeyStroke.getKeyStroke(key, InputEvent.CTRL_DOWN_MASK));
             addActionListener(actionListener);
         }
     }
@@ -416,7 +418,7 @@ public class AmidstMenu extends JMenuBar {
                 add(new JMenuItem("Stronghold") {
 
                     {
-                        setAccelerator(KeyStroke.getKeyStroke(70, 128));
+                        setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.CTRL_DOWN_MASK));
                         addActionListener(new ActionListener() {
 
                             public void actionPerformed(ActionEvent e) {
@@ -436,7 +438,7 @@ public class AmidstMenu extends JMenuBar {
                 add(new JMenuItem("Coordinate") {
 
                     {
-                        setAccelerator(KeyStroke.getKeyStroke(71, 128));
+                        setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_DOWN_MASK));
                         addActionListener(new ActionListener() {
 
                             public void actionPerformed(ActionEvent e) {
@@ -583,7 +585,7 @@ public class AmidstMenu extends JMenuBar {
 
             private CaptureMenuItem() {
                 super("Save to image...");
-                setAccelerator(KeyStroke.getKeyStroke(84, 128));
+                setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.CTRL_DOWN_MASK));
                 addActionListener(new ActionListener() {
 
                     public void actionPerformed(ActionEvent e) {
@@ -638,7 +640,7 @@ public class AmidstMenu extends JMenuBar {
 
             private CopySeedMenuItem() {
                 super("Copy seed to Clipboard");
-                setAccelerator(KeyStroke.getKeyStroke(67, 128));
+                setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
                 addActionListener(new ActionListener() {
 
                     public void actionPerformed(ActionEvent e) {
@@ -746,7 +748,8 @@ public class AmidstMenu extends JMenuBar {
                         biomeColorMenu.add(AmidstMenu.this.reloadMenuItem);
                     }
                 });
-                AmidstMenu.this.reloadMenuItem.setAccelerator(KeyStroke.getKeyStroke("ctrl B"));
+                AmidstMenu.this.reloadMenuItem
+                    .setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.CTRL_DOWN_MASK));
                 Log.i("Checking for additional biome color profiles.");
                 File colorProfileFolder = new File(ForgeAmidst.getDataDir(), "config/forgeamidst/biome");
                 scanAndLoad(colorProfileFolder, this);
@@ -897,7 +900,7 @@ public class AmidstMenu extends JMenuBar {
 
             private RTGCheckbox(String text, BufferedImage icon, int key, JToggleButton.ToggleButtonModel model) {
                 super(text, (icon != null) ? new ImageIcon(icon) : null);
-                if (key != -1) setAccelerator(KeyStroke.getKeyStroke(key, 128));
+                if (key != -1) setAccelerator(KeyStroke.getKeyStroke(key, InputEvent.CTRL_DOWN_MASK));
                 final JCheckBoxMenuItem checkBox = this;
                 checkBox.setSelected(
                     Options.instance.rtgHighResolution.get()
