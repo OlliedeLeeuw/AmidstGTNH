@@ -80,8 +80,8 @@ public class ForgeAmidst {
     public void preInit(FMLPreInitializationEvent event) {
         mc = FMLClientHandler.instance()
             .getClient();
-        mcDataDir = (FMLClientHandler.instance()
-            .getClient()).mcDataDir;
+        mcDataDir = event.getModConfigurationDirectory()
+            .getParentFile();
     }
 
     @Mod.EventHandler
